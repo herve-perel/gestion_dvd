@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@popperjs/core": "^2.11.8",
+    "@symfony/stimulus-bridge": "^4.0.1",
+    "bootstrap": "^5.3.8"
+  },
+  "name": "gestion_dvd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herve-perel/gestion_dvd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herve-perel/gestion_dvd/issues"
+  },
+  "homepage": "https://github.com/herve-perel/gestion_dvd#readme",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^5.3.1",
+    "sass": "^1.97.3",
+    "sass-loader": "^16.0.7"
+  },
+  "description": ""
+}

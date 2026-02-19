@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Connexion
+{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <form class="w-100 p-4 shadow rounded bg-white" style="max-width: 500px;" method="post">
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="alert alert-info">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}.
+                <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            </div>
+        {% endif %}
+
+        <h1 class="h3 mb-4 text-center">Connexion</h1>
+        <div class="form-floating mb-3">
+            <input
+                type="text"
+                name="_username"
+                class="form-control"
+                id="floatingInput"
+                placeholder="username"
+                autocomplete="username"
+                required
+            >
+            <label for="floatingInput">Nom D'utilisateur</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input
+                type="password"
+                name="_password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+                autocomplete="current-password"
+                required
+            >
+            <label for="floatingPassword">Mot de passe</label>
+        </div>
+
+        <input
+            type="hidden"
+            name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <div class="form-check form-switch mb-3">
+            <input
+                class="form-check-input form-switch"
+                type="checkbox"
+                name="_remember_me"
+                id="flexSwitchCheckDefault"
+            >
+            <label class="form-check-label" for="flexSwitchCheckDefault">
+                Se souvenir de moi
+            </label>
+        </div>
+
+        <button class="btn btn-dark w-100" type="submit">
+            Se connecter
+        </button>
+
+    </form>
+</div>
+{% endblock %}
